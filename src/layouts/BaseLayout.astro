@@ -1,0 +1,30 @@
+---
+import '../styles/global.css';
+
+const { title = 'afds.me'} = Astro.props;
+
+---
+<!doctype html>
+<html lang ="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, inital-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+
+	</head>
+	<body class="page-container">
+
+		<main class="flex-1 pt-16">
+			<slot />
+		</main>
+
+		<footer class="mt-20">
+			<span class="tracking-wider text-base=">afds.me</span>
+			<span>&copy; {new Date().getFullYear()} - All Rights Reserved.</span>
+		</footer>
+	</body>
+</html>
+
