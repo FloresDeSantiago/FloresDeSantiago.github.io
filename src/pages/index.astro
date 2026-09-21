@@ -2,11 +2,13 @@
 // Welcome to Astro! Everything between these triple-dash code fences
 // is your "component frontmatter". It never runs in the browser.
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/nav.astro';
 
 console.log('This runs in your terminal, not the browser!');
 
 ---
 <BaseLayout>
+	<Navigation />
 	<section class="flex flex-col items-center justify-center px-6 relative overflow-hidden">
 		<div class="relative z-10 text-center">
 			<h1 class="text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl">AFDS</h1>
