@@ -1,0 +1,15 @@
+---
+// Shell shared by the projects and blog index pages. Rows go in the slot.
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+	heading: string;
+}
+const { heading } = Astro.props;
+---
+<BaseLayout title={`${heading} · afds.me`}>
+	<section class="px-6 pt-12 pb-32 text-gray-900 md:px-10 md:pt-20">
+		<h1 class="sr-only">{heading}</h1>
+		<slot />
+	</section>
+</BaseLayout>

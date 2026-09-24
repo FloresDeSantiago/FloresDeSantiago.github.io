@@ -1,17 +1,16 @@
 ---
-// Welcome to Astro! Everything between these triple-dash code fences
-// is your "component frontmatter". It never runs in the browser.
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Navigation from '../components/nav.astro';
-
-console.log('This runs in your terminal, not the browser!');
-
 ---
 <BaseLayout>
-	<Navigation />
-	<section class="flex flex-col items-center justify-center px-6 relative overflow-hidden">
-		<div class="relative z-10 text-center">
-			<h1 class="text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl">AFDS</h1>
+	<section class="flex min-h-[calc(100svh-4rem)] flex-col justify-between px-6 pt-12 pb-8 md:px-10 md:pt-20 md:pb-10 lg:pt-28 text-gray-900">
+		<p class="max-w-[14em] text-[clamp(2.5rem,7.5vw,6rem)] font-medium leading-[0.98] tracking-[-0.03em] text-pretty">
+			I’m Aldo Flores de Santiago, I work across software, hardware, and media. I <span class="font-bold">build</span> things that are as much about the <span class="font-bold">process</span> as they are about the <span class="font-bold">end result</span>.
+<!-- <span class="font-bold">lorem ipsum</span> dolor sit amet, consectetur adipiscing elit, sed do <span class="font-bold">eiusmod tempor</span> incididunt ut labore et dolore magna aliqua. -->
+		</p>
+
+		<div class="mt-24 flex items-end justify-end gap-8 text-xs font-medium uppercase tracking-[0.08em] text-gray-600">
+			<span>Los Angeles</span>
+			<time datetime={String(new Date().getFullYear())}>{new Date().getFullYear()}</time>
 		</div>
 	</section>
 </BaseLayout>

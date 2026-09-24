@@ -1,0 +1,27 @@
+---
+// Previous / next links at the bottom of a project or blog entry.
+import type { Entry } from '../lib/content';
+
+interface Props {
+	label: string;
+	previous?: Entry;
+	next?: Entry;
+}
+const { label, previous, next } = Astro.props;
+---
+{(previous || next) && (
+	<nav aria-label={label} class="mt-24 grid grid-cols-2 gap-6 md:mt-32">
+		{previous && (
+			<a href={previous.href} class="col-start-1 transition-opacity hover:opacity-60">
+				<span class="block text-xs font-medium uppercase tracking-[0.08em] text-gray-600">← Previous</span>
+				<span class="mt-2 block text-xl font-medium leading-tight tracking-[-0.02em] md:text-2xl">{previous.title}</span>
+			</a>
+		)}
+		{next && (
+			<a href={next.href} class="col-start-2 text-right transition-opacity hover:opacity-60">
+				<span class="block text-xs font-medium uppercase tracking-[0.08em] text-gray-600">Next →</span>
+				<span class="mt-2 block text-xl font-medium leading-tight tracking-[-0.02em] md:text-2xl">{next.title}</span>
+			</a>
+		)}
+	</nav>
+)}

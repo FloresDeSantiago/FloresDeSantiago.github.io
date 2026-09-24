@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import '@fontsource-variable/inter-tight';
+import Navigation from '../components/Nav.astro';
 
 const { title = 'afds.me'} = Astro.props;
 
@@ -8,22 +10,23 @@ const { title = 'afds.me'} = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 
 	</head>
-	<body class="min-h-screen flex flex-col">
+	<body class="min-h-screen flex flex-col font-display">
+
+		<Navigation />
 
 		<main class="flex-1 pt-16">
 			<slot />
 		</main>
 
-		<footer class="mt-20">
-			<span class="tracking-wider text-base">afds.me</span>
-			<span>&copy; {new Date().getFullYear()} - All Rights Reserved.</span>
+		<footer class="pointer-events-none fixed left-6 bottom-4 z-40 text-left text-xs font-medium text-gray-600 md:left-10 md:bottom-6 md:text-[13px]">
+			<span class="text-gray-900">afds.me</span>{' '}
+			<span>&copy; {new Date().getFullYear()} · All Rights Reserved.</span>
 		</footer>
 	</body>
 </html>

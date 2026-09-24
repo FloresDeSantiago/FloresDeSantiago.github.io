@@ -1,0 +1,48 @@
+---
+const links = [
+	{ href: '/projects/', label: 'Projects' },
+	{ href: '/blog/', label: 'Blog' },
+	{ href: '/', label: 'Portfolio' },
+	{ href: '/Resume.pdf', label: 'Resume' },
+];
+---
+<nav aria-label="Primary" class="fixed top-0 left-0 right-0 z-50 bg-white text-[15px] font-semibold uppercase tracking-[-0.015em] antialiased">
+	<div class="px-6 md:px-10 flex items-center justify-between h-16">
+		<a href="/" class="text-xl transition-opacity hover:opacity-60 focus-visible:opacity-60">AFDS.ME</a>
+		<div class="hidden md:flex items-center gap-14">
+			{links.map(({ href, label }) => (
+				<a href={href} class="transition-opacity hover:opacity-60 focus-visible:opacity-60">{label}</a>
+			))}
+		</div>
+		<button
+			type="button"
+			id="nav-toggle"
+			aria-controls="nav-menu"
+			aria-expanded="false"
+			class="md:hidden uppercase transition-opacity hover:opacity-60 focus-visible:opacity-60"
+		>
+			Menu
+		</button>
+	</div>
+	<div id="nav-menu" hidden class="md:hidden px-6 pb-6">
+		<ul class="flex flex-col gap-4 text-2xl">
+			{links.map(({ href, label }) => (
+				<li><a href={href} class="transition-opacity hover:opacity-60 focus-visible:opacity-60">{label}</a></li>
+			))}
+		</ul>
+	</div>
+</nav>
+
+<script>
+	const toggle = document.getElementById('nav-toggle')!;
+	const menu = document.getElementById('nav-menu')!;
+	const setOpen = (open: boolean) => {
+		menu.hidden = !open;
+		toggle.setAttribute('aria-expanded', String(open));
+		toggle.textContent = open ? 'Close' : 'Menu';
+	};
+	toggle.addEventListener('click', () => setOpen(menu.hidden));
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape') setOpen(false);
+	});
+</script>

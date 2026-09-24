@@ -1,0 +1,22 @@
+---
+import ListLayout from '../../layouts/ListLayout.astro';
+import { getProjects } from '../../lib/content';
+
+const projects = await getProjects();
+---
+<ListLayout heading="Projects">
+	<ol>
+		{projects.map((project, index) => (
+			<li>
+				<a
+					href={`/projects/${project.id}/`}
+					class="grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-x-4 py-6 transition-opacity hover:opacity-60 focus-visible:opacity-60 md:grid-cols-[6rem_1fr_auto] md:py-8"
+				>
+					<span aria-hidden="true" class="text-2xl font-semibold uppercase leading-[1.05] tracking-[-0.02em] tabular-nums md:text-4xl">{String(index + 1).padStart(2, '0')}</span>
+					<h2 class="col-start-2 text-2xl font-semibold uppercase leading-[1.05] tracking-[-0.02em] md:text-4xl">{project.data.title}</h2>
+					<span class="col-start-3 text-[13px] font-medium tabular-nums">{project.data.year}</span>
+				</a>
+			</li>
+		))}
+	</ol>
+</ListLayout>
